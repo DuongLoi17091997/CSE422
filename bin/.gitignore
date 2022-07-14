@@ -1,6 +1,3 @@
-/acounts/
-/datastorage/
-/features/
-/methods/
 /Models/
+/DAO/
 /Repositories/
