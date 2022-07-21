@@ -1,32 +1,56 @@
 package Repositories;
 
+import java.util.List;
 import Models.User;
-import Repositories.*;
 
 public class Repository implements IRepository{
-
+	List<User> list;
 	@Override
-	public void addUser(User user) {
-		// TODO Auto-generated method stub
-		
+	public boolean addUser(User user) {
+		boolean res = false;
+		if (this.get(user.getUserName()) == null) {
+			list.add(user);
+			res = true;
+		}
+		return res;
 	}
 
 	@Override
-	public void updateUser(User user) {
-		// TODO Auto-generated method stub
+	public boolean updateUser(User user) {
+		boolean res = false;
+		for (int i = 0; i < list.size(); i++) {
+			if(this.list.get(i).getUserName().equalsIgnoreCase(user.getUserName())) {
+				this.list.remove(i);
+				this.list.add(i, user);
+				res = true;
+				break;
+			}
+		}
 		
+		return res;
+	}
+	
+
+	@Override
+	public boolean removeUser(String username) {
+		boolean res = false;
+		User tempUser = this.get(username);
+		if (tempUser != null) {
+			this.list.remove(tempUser);
+			res = true;
+		}
+		return res;
 	}
 
 	@Override
-	public void removeUser(User user) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public User get(String id) {
-		// TODO Auto-generated method stub
-		return null;
+	public User get(String username) {
+		User user = null;
+		for (int i = 0; i < list.size(); i++) {
+			if (list.get(i).getUserName().equals(username)) {
+				return list.get(i);
+			}
+		}
+		return user;
 	}
 	
 	

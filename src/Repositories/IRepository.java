@@ -3,10 +3,10 @@ package Repositories;
 import Models.User;
 
 public interface IRepository {
-	User get(String id);
-	void addUser(User user);
+	User get(String username);
+	boolean addUser(User user);
 
-	void updateUser(User user);
+	boolean updateUser(User user);
 
-	void removeUser(User user);
+	boolean removeUser(String username);
 }
