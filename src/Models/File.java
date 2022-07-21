@@ -3,7 +3,7 @@ package Models;
 public class File {
 	String image;
 	String video;
-	String music;
+	String audio;
 
 	public File() {
 
@@ -25,12 +25,12 @@ public class File {
 		this.video = video;
 	}
 
-	public String getMusic() {
-		return music;
+	public String getAudio() {
+		return audio;
 	}
 
-	public void setMusic(String music) {
-		this.music = music;
+	public void setAudio(String audio) {
+		this.audio = audio;
 	}
 
 }
